@@ -43,7 +43,7 @@ The markdown format is commonly used for things like readme files, as they allow
 which allows for basic typesetting when viewed while still being a plaintext format.
 
 Below is a blank checkbox:
-- [ ] Put an X in the [ ] to mark this as done!
+- [X] Put an X in the [ ] to mark this as done!
 
 You can edit this file directly to check off these checkboxes throughout the lab to mark things as done.
 Do so now for the checkbox above.
@@ -55,7 +55,7 @@ And now, back to Fizz Buzz!
 Fizz Buzz is a game where people sit in a circle. Counting from 1 and going around the circle,
 people say one of four things for a number `i`: `Fizz`, `Buzz`, `Fizz Buzz`, or `i`.
 
-- [ ] Try a short game of Fizz Buzz with a small group of people around you!
+- [X] Try a short game of Fizz Buzz with a small group of people around you!
 
 Formally as a coding task, let `i` be a positive integer and output the following:
 
@@ -93,25 +93,25 @@ class FizzBuzz {
         for (int i = 1; i < 100; i++) {
 
             // Find out which numbers divide i.
-            boolean divisibleBy3 = i % 3 == 0;
-            boolean divisibleBy5 = i % 5 == 0;
+            boolean divisibleBy3 = i % 3 == 0; // creating boolean variable that will determine if divisible by 3
+            boolean divisibleBy5 = i % 5 == 0; // creating boolean variable to determine if divisible by 5
 
             // Print our appropriate result.
             if (divisibleBy3 && divisibleBy5) {
 
-                System.out.println("Fizz Buzz");
+                System.out.println("Fizz Buzz"); // if divisible by 3 and 5, print "Fizz Buzz"
 
             } else if (divisibleBy3) {
 
-                System.out.println("Fizz");
+                System.out.println("Fizz"); //else if divisible ONLY by 3, print "Fizz"
 
             } else if (divisibleBy5) {
 
-                System.out.println("Buzz");
+                System.out.println("Buzz"); // else if ONLY divisible by 5, print "Buzz"
 
             } else {
 
-                System.out.println(i);
+                System.out.println(i); // if all else, print out the number/ value of i
 
             }
         }
@@ -119,7 +119,7 @@ class FizzBuzz {
 }
 ```
 
-- [ ] Open `FizzBuzz.java` in the `src` directory and click the run button in the top left corner.
+- [X] Open `FizzBuzz.java` in the `src` directory and click the run button in the top left corner.
 
 If you don't see this button, you may need to mark `src` as the `Sources Root` for the project. You can do this
 by right-clicking the `src` directory in the `Project` tab and near the bottom of the context menu
@@ -137,7 +137,23 @@ the code are doing. For example, what's the Java version of Python's `and`? What
 on with that weird `for` loop? As you do this, you might find it useful to write down your
 own implementation in Python to help you begin to create a mapping between the two languages.
 
-- [ ] Make note of any specific Java syntax which stands out to you and compare what you
+Notes:
+- In Java, && is and
+- For this line of code:
+  - for (int i = 1; i < 100; i++)
+    - Explanation:
+      - for each iteration, the int i will start at one, and keep on adding 
+      one until i hits 100, each iteration will run as long as i is less than
+      100, otherwise, it will stop adding a value to i. 
+      - parameters: for(start value; end value; how it will increase)
+  - No elif, must be typed out as **else if**
+  - When defining a variable/creating a variable, must state:
+    - type, name, then = (to assign a value or equation), and end with semi-colon
+  - All Java statements MUST end with a semi-colon (;)
+  - Lines of code for loop statements, and Classes must be contained within curly brackets
+
+
+- [X] Make note of any specific Java syntax which stands out to you and compare what you
 come up with those around you. Try to come up with a list of at least five things that
 strike you as either similar to or different from Python.
 
@@ -162,7 +178,68 @@ Later in this course, you'll learn what all that mess means, but for now it is e
 
 ### Task 1.1: Rewrite this using `while`
 
-- [ ] You've puzzled through how Java `for` and `if` statements work; now rewrite this
+```java
+/**
+ * Solve the FizzBuzz challenge - rewrite program using WHILE LOOP.
+ */
+class FizzBuzz {
+
+   public static void main(String[] args) {
+
+       int i = 1;
+       boolean divisibleBy3 = i % 3 == 0;
+       boolean divisibleBy5 = i % 5 == 0;
+
+       //while loop version below:
+      while (i < 100) {
+         if (divisibleBy3 && divisibleBy5) {
+            System.out.println("Fizz Buzz");
+         }
+         else if (divisibleBy3) {
+            System.out.println("Fizz");
+         }
+         else if (divisibleBy5) {
+            System.out.println("Buzz");
+         }
+         else {
+            System.out.println(i);
+         }
+         i++;
+      }
+   }
+}
+```
+- TA solution:
+  - implemented the comparisons/evaluating into a method, and then put it in a while loop:
+    ```java
+    class FizzBuzz {
+        public static void main(String[] args){
+            int i = 1;
+            while(i < 100) {
+                i = doFizzBuzz(i);
+            }
+        }
+        private static void doFizzBuzz(String[] args){
+            while (i < 100) {
+                if (divisibleBy3 && divisibleBy5) {
+                    System.out.println("Fizz Buzz");
+                } 
+                else if (divisibleBy3) {
+                    System.out.println("Fizz");
+                } 
+                else if (divisibleBy5) {
+                    System.out.println("Buzz");
+                } 
+                else {
+                    System.out.println(i);
+                }
+                i++;
+            }
+        }
+    }
+    ```
+
+- [X] You've puzzled through how Java `for` and `if` statements work; now rewrite this
 to use a `while` loop instead of a `for` loop.
 
 ## How to test this code
@@ -181,7 +258,7 @@ line or the closing brace `}` of the loop.
 
 3. Immediately, type the method name you want, maybe something like `doFizzBuzz`.
 
-- [ ] Rerun the program to verify that it still works.
+- [X] Rerun the program to verify that it still works.
 
 That's your first big IntelliJ trick! There are lots more.
 
@@ -194,7 +271,7 @@ You'll learn more about the various access modifiers in your Java readings soon.
 
 Now that you've made your first edits to your code, you should ask git to save these changes for you.
 
-- [ ] Open the Terminal tab in IntelliJ and type `git status`, it will show you that you have modified `FizzBuzz.java` (and this README too!).
+- [X] Open the Terminal tab in IntelliJ and type `git status`, it will show you that you have modified `FizzBuzz.java` (and this README too!).
 
 We will save our local changes to `FizzBuzz.java` and then push the changes to your GitHub repository using
 a sequence of three git commands:
@@ -214,7 +291,7 @@ a sequence of three git commands:
    will need to do the actual push using IntelliJ. See the first tip below, which mentions how to perform
    the relevant git operations through IntelliJ's graphical user interface.
 
-- [ ] Once you execute these commands, you can check your GitHub repository to confirm that the changes have been made there.
+- [X] Once you execute these commands, you can check your GitHub repository to confirm that the changes have been made there.
 
 - [ ] repeat the above steps for `README.md` (or try using the approach below).
 
