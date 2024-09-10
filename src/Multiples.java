@@ -1,3 +1,6 @@
+/**
+ * Count the amount of numbers that are multiples of 3 or 5 within 1000.
+ */
 public class Multiples {
     public static void main(String[] args) {
         int i = 1;
